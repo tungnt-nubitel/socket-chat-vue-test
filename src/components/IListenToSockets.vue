@@ -4,6 +4,7 @@
     <p>Message from server: "{{ socketMessage }}"</p>
     <button @click="newSession()">New Session</button>
     <button @click="newMessage()">New Message</button>
+    <button @click="clientEndSession()">End Session</button>
   </div>
 </template>
 
@@ -84,6 +85,13 @@ export default {
         text: "text new message",
       };
       this.$socket.emit("addNewChatMessage", data);
+    },
+    clientEndSession() {
+      // Send the "clientEndSession" event to the server.
+      const data = {
+        conversationId: `794ad291-f0c7-415b-823b-6bcbd7ddtung`,
+      };
+      this.$socket.emit("clientEndSession", data);
     },
   },
 };
