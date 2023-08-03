@@ -37,6 +37,10 @@ export default {
     newChatMessageToSocket(data) {
       this.socketMessage = data?.text;
     },
+    endConversation(data) {
+      this.socketMessage = data?.text;
+      console.log(data, "end chat");
+    },
   },
 
   methods: {
